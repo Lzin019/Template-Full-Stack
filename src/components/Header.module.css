@@ -1,0 +1,49 @@
+.header {
+    background-color: lightskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.header h1 {
+    margin-right: 1rem;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.atom {
+    display: flex;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.header h2 {
+    margin-bottom: 0.5rem;
+}
+
+.header span {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.verb {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.verb:hover {
+    text-decoration: underline;
+}

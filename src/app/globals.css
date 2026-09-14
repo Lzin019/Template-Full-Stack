@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, aliceblue, lightskyblue);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.skeleton {
+    display: block;
+    margin:2rem auto;
+    width: 350px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
