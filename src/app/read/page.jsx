@@ -1,24 +1,21 @@
 'use client';
 
-import { Skeleton } from 'antd';
+import {Skeleton} from 'antd';
 import axios from 'axios';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-export default function ApiKeyPage() {
+export default function ReadPage() {
     const [series, setSeries] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function buscarSeries() {
             try {
-                const resp =  await axios.get(`${process.env.NEXT_PUBLIC_URL_SERIES}?limit=50`, {
-                    headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY },
-                });
-
+                const resp = await axios.get('/api/series?limit=50');
                 setSeries(resp.data.data);
                 toast.success('Séries carregadas!', {id: 'read' });
-                
             } catch (error) {
                 toast.error('Erro ao buscar séries', {id: 'read' });
             } finally {
@@ -31,12 +28,12 @@ export default function ApiKeyPage() {
 
     return (
         <main>
-            <h2>Veja api-key ficando exposta no header desta chamada. </h2>
-            <p>DevTools - Network - Header - Series</p>
-            <p>Axios.get direto na API, com api-key exposta no navegador.</p>
-            {loading ? (
+            <h2>Read</h2>
+            <p>Buscando séries via /api/series (nossa API route.js), que fala com a Codeverse direto do servidor.</p>
+           
+           {loading ? (
                 <div className={"skeleton"}>
-                    <Skeleton />
+                <Skeleton active />
                 </div>
             ) : (
                 <ul>
